@@ -31,8 +31,62 @@
         function getHumanChoice() {
             let choice = prompt('Make a choice (rock, paper, or scissors): ');
         }
-        getHumanChoice();
-        console.log(getComputerChoice());
+
+        function playRound(humanChoice, computerChoice) {
+            humanChoice = humanChoice.toLowerCase();
+            switch (computerChoice) {
+                case 'rock':
+                    switch (humanChoice) {
+                        case 'rock':
+                            console.log('It\'s a draw!');
+                            break;
+                        case 'scissors':
+                            console.log('You lose! Rock beats scissors!');
+                            computerScore++;
+                            break;
+                        case 'paper':
+                            console.log('You win! Paper beats rock!');
+                            humanScore++;
+                            break;
+                    }
+                    break;
+                case 'scissors': 
+                    switch (humanChoice) {
+                        case 'rock':
+                            console.log('You win! Rock beats scissors!');
+                            humanScore++;
+                            break;
+                        case 'scissors':
+                            console.log('It\'s a draw!');
+                            break;
+                        case 'paper':
+                            console.log('You lose! Scissors beats paper!');
+                            computerScore++;
+                            break;
+                    }
+                    break;
+                case 'paper':
+                    switch (humanChoice) {
+                        case 'rock':
+                            console.log('You lose! Paper beats rock!');
+                            computerScore++;
+                            break;
+                        case 'scissors':
+                            console.log('You win! Scissors beats paper!');
+                            humanScore++;
+                            break;
+                        case 'paper':
+                            console.log('It\'s a draw!');
+                            break;
+                    }
+                    break;
+                default: 
+                    break;
+            }
+        }
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
     </script>
 </body>
 </html>
